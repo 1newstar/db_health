@@ -1,0 +1,10 @@
+select a.tablespace_name,B.TOTAL "TOTAL(MB)" ,a.use "USE(MB)", trunc(a.use / total*100,2) as "USED%"                                                                                                                      
+  from (select tablespace_name, sum(bytes) / 1024 / 1024 as use                                                                                                                                                           
+          from DBA_UNDO_EXTENTS                                                                                                                                                                                           
+         where status <> 'EXPIRED'                                                                                                                                                                                        
+         group by tablespace_name) a,                                                                                                                                                                                     
+       (select tablespace_name, sum(bytes) / 1024 / 1024 as total                                                                                                                                                         
+          from dba_data_files                                                                                                                                                                                             
+         where tablespace_name in ('UNDOTBS1', 'UNDOTBS2')                                                                                                                                                                
+         group by tablespace_name) b                                                                                                                                                                                      
+ where a.tablespace_name = b.tablespace_name; 

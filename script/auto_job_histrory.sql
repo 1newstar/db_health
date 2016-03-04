@@ -1,0 +1,14 @@
+SELECT *                                                                                                                                                                                                                  
+  FROM (select client_name,                                                                                                                                                                                               
+               window_name,                                                                                                                                                                                               
+               window_start_time,                                                                                                                                                                                         
+               window_duration,                                                                                                                                                                                           
+               job_name,                                                                                                                                                                                                  
+               job_status,                                                                                                                                                                                                
+               job_start_time,                                                                                                                                                                                            
+               job_duration,                                                                                                                                                                                              
+               job_error                                                                                                                                                                                                  
+          from dba_autotask_job_history                                                                                                                                                                                   
+         where client_name = 'auto optimizer stats collection'                                                                                                                                                            
+         order by JOB_START_TIME desc)                                                                                                                                                                                    
+ WHERE ROWNUM < 10;
