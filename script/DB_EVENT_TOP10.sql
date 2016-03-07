@@ -83,7 +83,7 @@ FROM
           total_waits_fg total_waits,
           ROUND(time_waited_micro_fg / 1000000, 2) time_waited
         FROM dba_hist_system_event
-        WHERE wait_class NOT IN ('Idle', 'System I/O')
+        WHERE wait_class NOT IN ('Idle')
         -- and event_name = 'db file sequential read'
         UNION ALL
         SELECT dbid,
