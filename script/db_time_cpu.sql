@@ -11,8 +11,8 @@ SELECT s.snap_date,
   ||q'{</a>}' endsnap_id
 FROM
   (SELECT curr_redo  - last_redo redosize,
-    TO_CHAR(currtime - numtodsinterval(3600, 'second'), 'yyyy/mm/dd') snap_date ,
-    TO_CHAR(currtime - numtodsinterval(3600, 'second'), 'hh24:mi') currtime,
+    TO_CHAR(currtime - numtodsinterval(ROUND(((currtime + 0) - (lasttime + 0)) * 3600 * 24, 0), 'second'), 'yyyy/mm/dd') snap_date ,
+    TO_CHAR(currtime - numtodsinterval(ROUND(((currtime + 0) - (lasttime + 0)) * 3600 * 24, 0), 'second'), 'hh24:mi') currtime,
     ROUND(((currtime + 0) - (lasttime + 0)) * 3600 * 24, 0) seconds,
     currsnap_id endsnap_id
   FROM
