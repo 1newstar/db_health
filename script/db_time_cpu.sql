@@ -7,7 +7,7 @@ SELECT s.snap_date  "Snap Date",
   totalparses "Parse count (total)",
   hardparses "Parse count (hard)",
   usercommits "User commits",
-  TO_CHAR(ROUND(s.seconds / 60, 2)) "Elapse(min)",
+  ROUND(s.seconds / 60, 2) "Elapse(min)",
   ROUND(t.db_time         / 1000000 / 60, 2) "DB time(min)",
   ROUND(t.db_cpu          / 1000000 / 60, 2) "DB cpu(min)",
   ROUND(100               * t.db_cpu / t.db_time, 2) "CPU Pct to Time%",
@@ -104,6 +104,6 @@ FROM dbtime,
 WHERE dbtime.endsnap_id = dbcpu.endsnap_id
   ) t
 WHERE s.endsnap_id                      = t.endsnap_id
-AND to_date(s.snap_date, 'yyyy/mm/dd') >= TRUNC(sysdate) - 2
+AND to_date(s.snap_date, 'yyyy/mm/dd') >= TRUNC(sysdate) - 1
 ORDER BY s.snap_date,
   "Time";
