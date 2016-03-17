@@ -1,21 +1,21 @@
-SELECT s.snap_date,
-  DECODE(s.redosize, NULL, '--shutdown or end--', s.currtime) "TIME",
-  ROUND(redosize        / 1024 / 1024 / 1024, 2) "redo(GB)",
-  ROUND((logicalreads   * 8) / 1024 / 1024, 2) "session logical reads(GB)",
-  ROUND((physicalreads  * 8) / 1024 / 1024, 2) "physical reads(GB)",
-  ROUND((physicalwrites * 8) / 1024 / 1024, 2) "physical writes(GB)",
-  totalparses "parse count (total)",
-  hardparses "parse count (hard)",
-  usercommits "user commits",
-  TO_CHAR(ROUND(s.seconds / 60, 2)) "elapse(min)",
+SELECT s.snap_date  "Snap Date",
+  DECODE(s.redosize, NULL, '--shutdown or end--', s.currtime) "Time",
+  ROUND(redosize        / 1024 / 1024 / 1024, 2) "Redo Size(GB)",
+  ROUND((logicalreads   * 8) / 1024 / 1024, 2) "Logical reads(GB)",
+  ROUND((physicalreads  * 8) / 1024 / 1024, 2) "Physical reads(GB)",
+  ROUND((physicalwrites * 8) / 1024 / 1024, 2) "Physical writes(GB)",
+  totalparses "Parse count (total)",
+  hardparses "Parse count (hard)",
+  usercommits "User commits",
+  TO_CHAR(ROUND(s.seconds / 60, 2)) "Elapse(min)",
   ROUND(t.db_time         / 1000000 / 60, 2) "DB time(min)",
   ROUND(t.db_cpu          / 1000000 / 60, 2) "DB cpu(min)",
-  ROUND(100               * t.db_cpu / t.db_time, 2) "cpu pct to time%",
+  ROUND(100               * t.db_cpu / t.db_time, 2) "CPU Pct to Time%",
   q'{<a href="#}'
   || s.endsnap_id
   || q'{">}'
   || s.endsnap_id
-  || q'{</a>}' endsnap_id
+  || q'{</a>}' "Endsnap Id"
 FROM
   (SELECT curr_redo  - last_redo redosize,
     curr_lgreads     - last_lgreads logicalreads,
@@ -106,4 +106,4 @@ WHERE dbtime.endsnap_id = dbcpu.endsnap_id
 WHERE s.endsnap_id                      = t.endsnap_id
 AND to_date(s.snap_date, 'yyyy/mm/dd') >= TRUNC(sysdate) - 2
 ORDER BY s.snap_date,
-  TIME;
+  "Time";
