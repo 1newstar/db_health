@@ -5,7 +5,7 @@ REM display list use shell script
 
 spool off
 set markup html off spool off
-HOST sh script/ul.sh "Wait Events Statistics" Tablespace Objects Statistics Security Redo "Rman Backup" Archive FlashBack "System Parameter">>&script_base/report_&today_file..html
+HOST sh script/ul.sh "Wait Events Statistics" Tablespace Objects Statistics Security Redo "Rman Backup" Archive FlashBack ASM "System Parameter">>&script_base/report_&today_file..html
 spool &script_base/report_&today_file..html append
 set markup html on spool on                                                                                                                                                                                               
                                                                                                                                                                                                                           
