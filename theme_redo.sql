@@ -1,3 +1,15 @@
+-- ********************************************************************
+-- * Copyright Notice   : (c)2015,2016 Peng Liu.
+-- * Filename           : theme_redo.sql
+-- * Author             : Peng Liu
+-- * Original           : 20151117
+-- * Last Update        : 20160318
+-- * Description        : Theme about redo
+-- *                      Logfile Log
+-- *                      ...
+-- * Usage              : be called by db_health_check.sql
+-- ********************************************************************
+
 @@script/Pa Redo                                                                                                                                                                                                          
 @@script/H1 Redo
 spool off                                                                                                                                                                                                                 

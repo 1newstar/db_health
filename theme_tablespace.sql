@@ -1,3 +1,15 @@
+-- ********************************************************************
+-- * Copyright Notice   : (c)2015,2016 Peng Liu.
+-- * Filename           : theme_tablespace.sql
+-- * Author             : Peng Liu
+-- * Original           : 20151117
+-- * Last Update        : 20160318
+-- * Description        : Theme about tablespace
+-- *                      "Tablespace Used of Max" "Tablespace Used" "Datafiles Used" "Temp Tablespace Used" 
+-- *                      "Undoblock Type Space" "Real Undo Tablespace Used" "Undostat" "Other User System Segments Count"...
+-- * Usage              : be called by db_health_check.sql
+-- ********************************************************************
+
 REM display the tablespace info                                                                                                                                                                                           
                                                                                                                                                                                                                           
 @@script/Pa Tablespace                                                                                                                                                                                                    

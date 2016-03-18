@@ -1,3 +1,16 @@
+-- ********************************************************************
+-- * Copyright Notice   : (c)2015,2016 Peng Liu.
+-- * Filename           : db_health_check.sql
+-- * Author             : Peng Liu
+-- * Original           : 20151118
+-- * Last Update        : 20160318
+-- * Description        : The main script to call
+-- *                      To generate tody health report
+-- *                      HTML format...
+-- * Usage              : start db_health_check.sql
+-- ********************************************************************
+
+
 REM define the base path and the file path
 @@base_dir.sql
 REM startup html
@@ -31,6 +44,7 @@ SET ECHO OFF
 --SET FEEDBACK OFF
 SET PAGESIZE 1400
 SET termout off
+set verify off
 spool &script_base/report_&today_file..html
 PRO <div class='header'><H4>Author : &Author</h4> <h4>Date : &time</h4></div>
 

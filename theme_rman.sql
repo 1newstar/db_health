@@ -1,3 +1,15 @@
+-- ********************************************************************
+-- * Copyright Notice   : (c)2015,2016 Peng Liu.
+-- * Filename           : theme_rman.sql
+-- * Author             : Peng Liu
+-- * Original           : 20151117
+-- * Last Update        : 20160318
+-- * Description        : Theme about Rman
+-- *                      "Back History"
+-- *                      ...
+-- * Usage              : be called by db_health_check.sql
+-- ********************************************************************
+
 @@script/Pa "Rman Backup"                                                                                                                                                                                                          
 @@script/H1 "Rman Backup"
 spool off                                                                                                                                                                                                                 

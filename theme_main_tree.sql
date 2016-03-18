@@ -1,3 +1,15 @@
+-- ********************************************************************
+-- * Copyright Notice   : (c)2015,2016 Peng Liu.
+-- * Filename           : theme_main_tree.sql
+-- * Author             : Peng Liu
+-- * Original           : 20151117
+-- * Last Update        : 20160318
+-- * Description        : Theme about Directory tree
+-- *                      Generate the navigation
+-- *                      ...
+-- * Usage              : be called by db_health_check.sql
+-- ********************************************************************
+
 REM display the directory for every entry
 REM display list use shell script
 

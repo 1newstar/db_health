@@ -1,3 +1,15 @@
+-- ********************************************************************
+-- * Copyright Notice   : (c)2015,2016 Peng Liu.
+-- * Filename           : theme_asm.sql
+-- * Author             : Peng Liu
+-- * Original           : 20160317
+-- * Last Update        : 20160318
+-- * Description        : Theme about ASM
+-- *                      Disk Groups
+-- *                      ...
+-- * Usage              : be called by db_health_check.sql
+-- ********************************************************************
+
 @@script/Pa "ASM"                                                                                                                                                                                                          
 @@script/H1 "ASM"
 spool off                                                                                                                                                                                                                 

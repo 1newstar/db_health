@@ -1,3 +1,15 @@
+-- ********************************************************************
+-- * Copyright Notice   : (c)2015,2016 Peng Liu.
+-- * Filename           : theme_flashback.sql
+-- * Author             : Peng Liu
+-- * Original           : 20151117
+-- * Last Update        : 20160318
+-- * Description        : Theme about Flashback
+-- *                      "Supplemental Log" "Recover Area" "Flashback Stat"
+-- *                      ...
+-- * Usage              : be called by db_health_check.sql
+-- ********************************************************************
+
 @@script/Pa FlashBack
 @@script/H1 FlashBack
 spool off                                                                                                                                                                                                                 
