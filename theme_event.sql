@@ -3,7 +3,7 @@
 -- * Filename           : theme_event.sql
 -- * Author             : Peng Liu
 -- * Original           : 20151117
--- * Last Update        : 20160318
+-- * Last Update        : 20160519
 -- * Description        : Theme about Wait Events
 -- *                      Top 10 Foreground Events by Total Wait Time From yesterday to now
 -- *                      ...
@@ -14,8 +14,8 @@
 @@script/H1 "Wait Events Statistics"
 spool off                                                                                                                                                                                                                 
 set markup html off spool off
-HOST sh script/ul.sh "Top 10 Foreground Events by Total Wait Time" >>&script_base/report_&today_file..html                                                                                                                                               
-spool &script_base/report_&today_file..html append
+HOST sh script/ul.sh "Top 10 Foreground Events by Total Wait Time" >>&report_file                                                                                                                                               
+spool &report_file append
 set markup html on spool on                                                                                                                                                                                               
 @@script/To_Top
                                                                                                                                                                                                                           

@@ -3,7 +3,7 @@
 -- * Filename           : theme_rman.sql
 -- * Author             : Peng Liu
 -- * Original           : 20151117
--- * Last Update        : 20160318
+-- * Last Update        : 20160519
 -- * Description        : Theme about Rman
 -- *                      "Back History"
 -- *                      ...
@@ -14,8 +14,8 @@
 @@script/H1 "Rman Backup"
 spool off                                                                                                                                                                                                                 
 set markup html off spool off
-HOST sh script/ul.sh "Back History" >>&script_base/report_&today_file..html                                                                                                                                               
-spool &script_base/report_&today_file..html append
+HOST sh script/ul.sh "Back History" >>&report_file                                                                                                                                               
+spool &report_file append
 set markup html on spool on                                                                                                                                                                                               
 @@script/To_Top
                                                                                                                                                                                                                           

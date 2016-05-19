@@ -3,7 +3,7 @@
 -- * Filename           : db_health_check.sql
 -- * Author             : Peng Liu
 -- * Original           : 20151118
--- * Last Update        : 20160318
+-- * Last Update        : 20160519
 -- * Description        : The main script to call
 -- *                      To generate tody health report
 -- *                      HTML format...
@@ -12,10 +12,10 @@
 
 
 REM define the base path and the file path
-@@base_dir.sql
+@@base_var.sql
 REM startup html
 SET MARKUP HTML ON SPOOL ON PREFORMAT OFF ENTMAP OFF -
-HEAD "<TITLE>Health Report for DB:&db_name,Inst:&inst_name</TITLE>  -
+HEAD "<TITLE>Health Report for DB:&dbname,Inst:&instname</TITLE>  -
 <STYLE type='text/css'>  -
 body {font:bold 10pt Arial,Helvetica,Geneva,sans-serif;color:black; background:White;}  -
 table	{border_collapse: collapse; }  -
@@ -45,7 +45,7 @@ SET ECHO OFF
 SET PAGESIZE 1400
 SET termout off
 set verify off
-spool &script_base/report_&today_file..html
+spool &report_file
 PRO <div class='header'><H4>Author : &Author</h4> <h4>Date : &time</h4></div>
 
 @@theme_summary.sql

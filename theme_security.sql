@@ -14,8 +14,8 @@
 @@script/H1 Security                                                                                                                                                                                                      
 spool off
 set markup html off spool off                                                                                                                                                                                             
-HOST sh script/ul.sh "User Privileges" "Who Is DBA" >>&script_base/report_&today_file..html
-spool &script_base/report_&today_file..html append                                                                                                                                                                        
+HOST sh script/ul.sh "User Privileges" "Who Is DBA" >>&report_file
+spool &report_file append                                                                                                                                                                        
 set markup html on spool on
 @@script/To_Top                                                                                                                                                                                                           
 

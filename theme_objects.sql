@@ -3,7 +3,7 @@
 -- * Filename           : theme_objects.sql
 -- * Author             : Peng Liu
 -- * Original           : 20151117
--- * Last Update        : 20160318
+-- * Last Update        : 20160519
 -- * Description        : Theme about Objects
 -- *                      "Invalid Objects" "The Objects Nopartition Which Bigger Than 2GB" "Index Level Bigger Than 3" "Tables Have Chained Rows If Have Been Analyzed"
 -- *                      ...
@@ -14,8 +14,8 @@
 @@script/H1 Objects
 spool off                                                                                                                                                                                                                 
 set markup html off spool off
-HOST sh script/ul.sh "Invalid Objects" "The Objects Nopartition Which Bigger Than 2GB" "Index Level Bigger Than 3" "Tables Have Chained Rows If Have Been Analyzed" >>&script_base/report_&today_file..html               
-spool &script_base/report_&today_file..html append
+HOST sh script/ul.sh "Invalid Objects" "The Objects Nopartition Which Bigger Than 2GB" "Index Level Bigger Than 3" "Tables Have Chained Rows If Have Been Analyzed" >>&report_file               
+spool &report_file append
 set markup html on spool on                                                                                                                                                                                               
 @@script/To_Top
                                                                                                                                                                                                                           

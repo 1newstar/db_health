@@ -3,7 +3,7 @@
 -- * Filename           : theme_flashback.sql
 -- * Author             : Peng Liu
 -- * Original           : 20151117
--- * Last Update        : 20160318
+-- * Last Update        : 20160519
 -- * Description        : Theme about Flashback
 -- *                      "Supplemental Log" "Recover Area" "Flashback Stat"
 -- *                      ...
@@ -14,8 +14,8 @@
 @@script/H1 FlashBack
 spool off                                                                                                                                                                                                                 
 set markup html off spool off
-HOST sh script/ul.sh "Supplemental Log" "Recover Area" "Flashback Stat" >>&script_base/report_&today_file..html                                                                                                                                                  
-spool &script_base/report_&today_file..html append
+HOST sh script/ul.sh "Supplemental Log" "Recover Area" "Flashback Stat" >>&report_file                                                                                                                                                  
+spool &report_file append
 set markup html on spool on                                                                                                                                                                                               
 @@script/To_Top                                                                                                                                                                                                           
 

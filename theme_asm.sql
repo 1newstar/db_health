@@ -3,7 +3,7 @@
 -- * Filename           : theme_asm.sql
 -- * Author             : Peng Liu
 -- * Original           : 20160317
--- * Last Update        : 20160318
+-- * Last Update        : 20160519
 -- * Description        : Theme about ASM
 -- *                      Disk Groups
 -- *                      ...
@@ -14,8 +14,8 @@
 @@script/H1 "ASM"
 spool off                                                                                                                                                                                                                 
 set markup html off spool off
-HOST sh script/ul.sh "Disk Groups" >>&script_base/report_&today_file..html                                                                                                                                               
-spool &script_base/report_&today_file..html append
+HOST sh script/ul.sh "Disk Groups" >>&report_file                                                                                                                                               
+spool &report_file append
 set markup html on spool on                                                                                                                                                                                               
 @@script/To_Top
                                                                                                                                                                                                                           

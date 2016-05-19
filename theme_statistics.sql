@@ -14,8 +14,8 @@
 @@script/H1 Statistics                                                                                                                                                                                                    
 spool off
 set markup html off spool off                                                                                                                                                                                             
-HOST sh script/ul.sh "Autotask Client Status" "Auto Job History" "Gather Tables count" "Gather Special User Tables Count" >>&script_base/report_&today_file..html
-spool &script_base/report_&today_file..html append                                                                                                                                                                        
+HOST sh script/ul.sh "Autotask Client Status" "Auto Job History" "Gather Tables count" "Gather Special User Tables Count" >>&report_file
+spool &report_file append                                                                                                                                                                        
 set markup html on spool on
 @@script/To_Top                                                                                                                                                                                                           
 
