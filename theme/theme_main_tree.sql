@@ -3,7 +3,7 @@
 -- * Filename           : theme_main_tree.sql
 -- * Author             : Peng Liu
 -- * Original           : 20151117
--- * Last Update        : 20160519
+-- * Last Update        : 20160520
 -- * Description        : Theme about Directory tree
 -- *                      Generate the navigation
 -- *                      ...
@@ -13,7 +13,7 @@
 REM display the directory for every entry
 REM display list use shell script
 
-@@script/H1 "Main Report"
+@@script/tag/H1 "Main Report"
 
 spool off
 set markup html off spool off
@@ -23,4 +23,4 @@ set markup html on spool on
                                                                                                                                                                                                                           
 REM display the to_top                                                                                                                                                                                                    
                                                                                                                                                                                                                           
-@@script/To_Top
+@@script/tag/To_Top

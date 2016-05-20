@@ -3,7 +3,7 @@
 -- * Filename           : db_health_check.sql
 -- * Author             : Peng Liu
 -- * Original           : 20151118
--- * Last Update        : 20160519
+-- * Last Update        : 20160520
 -- * Description        : The main script to call
 -- *                      To generate tody health report
 -- *                      HTML format...
@@ -48,33 +48,33 @@ set verify off
 spool &report_file
 PRO <div class='header'><H4>Author : &Author</h4> <h4>Date : &time</h4></div>
 
-@@theme_summary.sql
+@@theme/theme_summary.sql
 
-@@theme_main_tree.sql
+@@theme/theme_main_tree.sql
 
-@@theme_event.sql
+@@theme/theme_event.sql
 
-@@theme_tablespace.sql
+@@theme/theme_tablespace.sql
 
-@@theme_objects.sql
+@@theme/theme_objects.sql
 
-@@theme_statistics.sql
+@@theme/theme_statistics.sql
 
-@@theme_security.sql
+@@theme/theme_security.sql
 
-@@theme_redo.sql
+@@theme/theme_redo.sql
 
-@@theme_rman.sql
+@@theme/theme_rman.sql
 
-@@theme_archive.sql
+@@theme/theme_archive.sql
 
-@@theme_flashback.sql
+@@theme/theme_flashback.sql
 
-@@theme_asm.sql
+@@theme/theme_asm.sql
 
-@@theme_parameter.sql
+@@theme/theme_parameter.sql
 
-@@script/P "End of Report"
+@@script/tag/P "End of Report"
 SET ECHO ON
 SET FEEDBACK ON
 spool off
