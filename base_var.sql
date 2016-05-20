@@ -16,7 +16,7 @@ SET verify off
 --define your variable
 
 define Author='Peng Liu'
-define report_dir='/home/oracle/db_health/report'
+define report_dir='D:\report'
 define special_users="'OLD_BROKER','OLD_BROKER','DEV_CENTER','DEV_BROKER'"
 
 
@@ -36,4 +36,4 @@ column instance_name new_value instname
 column cinstance_number new_value instnum
 select to_char(instance_number) as cinstance_number,instance_name from v$instance;
 
-define report_file="&report_dir/report_&dbname\_&instnum\_&todayfile..html"
+define report_file="&report_dir/Report-&dbname-&instnum-&todayfile..html"
