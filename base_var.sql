@@ -17,7 +17,7 @@ SET verify off
 
 define Author='Peng Liu'
 define report_dir='D:\report'
-define special_users="'OLD_BROKER','OLD_BROKER','DEV_CENTER','DEV_BROKER'"
+define special_users="'OLD_CENTER','OLD_BROKER','DEV_CENTER','DEV_BROKER'"
 
 
 column today new_value todayfile

@@ -14,9 +14,19 @@
 @@script/tag/H1 Objects
                                                                                                                                                                                                                  
 set markup html off              
-@@script/tag/ul.sql 'Invalid Objects,The Objects Nopartition Which Bigger Than 2GB,Index Level Bigger Than 3,Tables Have Chained Rows If Have Been Analyzed'
+@@script/tag/ul.sql 'Schema Objects Size,Recyclebin Size,Invalid Objects,The Objects Nopartition Which Bigger Than 2GB,Index Level Bigger Than 3,Tables Have Chained Rows If Have Been Analyzed'
 set markup html on                                                                                                                                                                                               
 @@script/tag/To_Top
+ 
+@@script/tag/Pa "Schema Objects Size"
+@@script/tag/H3 "Schema Objects Size"                                                                                                                                                                                             
+@@script/schema_size.sql
+@@script/tag/To_Link Objects
+
+@@script/tag/Pa "Recyclebin Size"
+@@script/tag/H3 "Recyclebin Size"                                                                                                                                                                                             
+@@script/recyclebin_size.sql
+@@script/tag/To_Link Objects  
                                                                                                                                                                                                                           
 @@script/tag/Pa "Invalid Objects"
 @@script/tag/H3 "Invalid Objects"                                                                                                                                                                                             
