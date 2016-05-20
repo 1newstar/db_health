@@ -15,11 +15,10 @@ REM display list use shell script
 
 @@script/tag/H1 "Main Report"
 
-spool off
-set markup html off spool off
-HOST sh script/ul.sh "Wait Events Statistics" Tablespace Objects Statistics Security Redo "Rman Backup" Archive FlashBack ASM "System Parameter">>&report_file
-spool &report_file append
-set markup html on spool on                                                                                                                                                                                               
+
+set markup html off
+@@script/tag/ul.sql  'Wait Events Statistics,Tablespace,Objects,Statistics,Security,Redo,Rman Backup,Archive,FlashBack,ASM,System Parameter'
+set markup html on                                                                                                                                                                                               
                                                                                                                                                                                                                           
 REM display the to_top                                                                                                                                                                                                    
                                                                                                                                                                                                                           

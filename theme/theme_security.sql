@@ -12,11 +12,10 @@
 
 @@script/tag/Pa Security
 @@script/tag/H1 Security                                                                                                                                                                                                      
-spool off
-set markup html off spool off                                                                                                                                                                                             
-HOST sh script/ul.sh "User Privileges" "Who Is DBA" >>&report_file
-spool &report_file append                                                                                                                                                                        
-set markup html on spool on
+
+set markup html off
+@@script/tag/ul.sql 'User Privileges,Who Is DBA'                                                                                                                                                                        
+set markup html on
 @@script/tag/To_Top                                                                                                                                                                                                           
 
 @@script/tag/Pa "User Privileges"                                                                                                                                                                                             

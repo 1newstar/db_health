@@ -12,11 +12,10 @@
 
 @@script/tag/Pa Statistics
 @@script/tag/H1 Statistics                                                                                                                                                                                                    
-spool off
-set markup html off spool off                                                                                                                                                                                             
-HOST sh script/ul.sh "Autotask Client Status" "Auto Job History" "Gather Tables count" "Gather Special User Tables Count" >>&report_file
-spool &report_file append                                                                                                                                                                        
-set markup html on spool on
+
+set markup html off
+@@script/tag/ul.sql 'Autotask Client Status,Auto Job History,Gather Tables count,Gather Special User Tables Count'                                                                                                                                                                       
+set markup html on
 @@script/tag/To_Top                                                                                                                                                                                                           
 
 @@script/tag/Pa "Autotask Client Status"                                                                                                                                                                                      

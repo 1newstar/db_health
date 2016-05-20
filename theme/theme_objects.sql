@@ -12,11 +12,10 @@
 
 @@script/tag/Pa Objects                                                                                                                                                                                                       
 @@script/tag/H1 Objects
-spool off                                                                                                                                                                                                                 
-set markup html off spool off
-HOST sh script/ul.sh "Invalid Objects" "The Objects Nopartition Which Bigger Than 2GB" "Index Level Bigger Than 3" "Tables Have Chained Rows If Have Been Analyzed" >>&report_file               
-spool &report_file append
-set markup html on spool on                                                                                                                                                                                               
+                                                                                                                                                                                                                 
+set markup html off              
+@@script/tag/ul.sql 'Invalid Objects,The Objects Nopartition Which Bigger Than 2GB,Index Level Bigger Than 3,Tables Have Chained Rows If Have Been Analyzed'
+set markup html on                                                                                                                                                                                               
 @@script/tag/To_Top
                                                                                                                                                                                                                           
 @@script/tag/Pa "Invalid Objects"

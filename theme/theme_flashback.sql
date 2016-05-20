@@ -12,11 +12,10 @@
 
 @@script/tag/Pa FlashBack
 @@script/tag/H1 FlashBack
-spool off                                                                                                                                                                                                                 
-set markup html off spool off
-HOST sh script/ul.sh "Supplemental Log" "Recover Area" "Flashback Stat" >>&report_file                                                                                                                                                  
-spool &report_file append
-set markup html on spool on                                                                                                                                                                                               
+                                                                                                                                                                                                                 
+set markup html off                                                                                                                                                 
+@@script/tag/ul.sql 'Supplemental Log,Recover Area,Flashback Stat'
+set markup html on                                                                                                                                                                                             
 @@script/tag/To_Top                                                                                                                                                                                                           
 
 @@script/tag/Pa "Supplemental Log"                                                                                                                                                    

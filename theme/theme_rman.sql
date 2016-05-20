@@ -12,11 +12,10 @@
 
 @@script/tag/Pa "Rman Backup"                                                                                                                                                                                                          
 @@script/tag/H1 "Rman Backup"
-spool off                                                                                                                                                                                                                 
-set markup html off spool off
-HOST sh script/ul.sh "Back History" >>&report_file                                                                                                                                               
-spool &report_file append
-set markup html on spool on                                                                                                                                                                                               
+                                                                                                                                                                                                               
+set markup html off                                                                                                                                               
+@@script/tag/ul.sql 'Back History'
+set markup html on                                                                                                                                                                                              
 @@script/tag/To_Top
                                                                                                                                                                                                                           
 @@script/tag/Pa "Back History"

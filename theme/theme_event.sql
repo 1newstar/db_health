@@ -12,11 +12,10 @@
 
 @@script/tag/Pa "Wait Events Statistics"                                                                                                                                                                                                          
 @@script/tag/H1 "Wait Events Statistics"
-spool off                                                                                                                                                                                                                 
-set markup html off spool off
-HOST sh script/ul.sh "Top 10 Foreground Events by Total Wait Time" >>&report_file                                                                                                                                               
-spool &report_file append
-set markup html on spool on                                                                                                                                                                                               
+                                                                                                                                                                                                               
+set markup html off                                                                                                                                              
+@@script/tag/ul.sql 'Top 10 Foreground Events by Total Wait Time'
+set markup html on                                                                                                                                                                                               
 @@script/tag/To_Top
                                                                                                                                                                                                                           
 @@script/tag/Pa "Top 10 Foreground Events by Total Wait Time"

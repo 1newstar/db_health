@@ -12,11 +12,11 @@
 
 @@script/tag/Pa Redo                                                                                                                                                                                                          
 @@script/tag/H1 Redo
-spool off                                                                                                                                                                                                                 
-set markup html off spool off
-HOST sh script/ul.sh Logfile Log >>&report_file                                                                                                                                                  
-spool &report_file append
-set markup html on spool on                                                                                                                                                                                               
+                                                                                                                                                                                                                
+set markup html off  
+@@script/tag/ul.sql 'Logfile,Log'                                                                                                                                                 
+set markup html on     
+                                                                                                                                                                                         
 @@script/tag/To_Top                                                                                                                                                                                                           
 
 @@script/tag/Pa Logfile                                                                                                                                                                                                       

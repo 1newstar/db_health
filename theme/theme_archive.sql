@@ -12,11 +12,10 @@
 
 @@script/tag/Pa Archive                                                                                                                                                                                                       
 @@script/tag/H1 Archive                                                                                                                                                                                                       
-spool off
-set markup html off spool off                                                                                                                                                                                             
-HOST sh script/ul.sh "Archive Rate"  >>&report_file
-spool &report_file append                                                                                                                                                                        
-set markup html on spool on
+
+set markup html off
+@@script/tag/ul.sql 'Archive Rate'                                                                                                                                                                        
+set markup html on
 @@script/tag/To_Top                                                                                                                                                                                                           
 
 @@script/tag/Pa "Archive Rate"                                                                                                                                                                                                

@@ -12,14 +12,13 @@
 
 @@script/tag/Pa "ASM"                                                                                                                                                                                                          
 @@script/tag/H1 "ASM"
-spool off                                                                                                                                                                                                                 
-set markup html off spool off
-HOST sh script/ul.sh "Disk Groups" >>&report_file                                                                                                                                               
-spool &report_file append
-set markup html on spool on                                                                                                                                                                                               
+                                                                                                                                                                                                                 
+set markup html off                                                                                                                                               
+@@script/tag/ul.sql 'Disk Groups'
+set markup html on                                                                                                                                                                                             
 @@script/tag/To_Top
                                                                                                                                                                                                                           
 @@script/tag/Pa "Disk Groups"
 @@script/tag/H3 "Disk Groups"                                                                                                                                                                                                
 @@script/asm_diskgroups.sql
-@@script/tag/To_Link "ASM"   
+@@script/tag/To_Link "ASM"
