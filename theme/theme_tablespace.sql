@@ -17,12 +17,18 @@ REM display the tablespace info
                                                                                                                                                                                                                           
                                                                                                                                                                                                                  
 set markup html off
-@@script/tag/ul.sql 'Tablespace Used of Max,Tablespace Used,Datafiles Used,Temp Tablespace Used,Undoblock Type Space,Real Undo Tablespace Used,Undostat,Other User System Segments Count'                                                                                                                                                                        
+@@script/tag/ul.sql 'Tablespace Growth Rate,Tablespace Used of Max,Tablespace Used,Datafiles Used,Temp Tablespace Used,Undoblock Type Space,Real Undo Tablespace Used,Undostat,Other User System Segments Count'                                                                                                                                                                        
 set markup html on                                                                                                                                                                                              
                                                                                                                                                                                                                           
 @@script/tag/To_Top                                                                                                                                                                                                           
                                                                                                                                                                                                                           
-REM display the tablespace used                                                                                                                                                                                           
+REM display the tablespace used  
+
+@@script/tag/Pa "Tablespace Growth Rate"                                                                                                                                                                                                    
+@@script/tag/H3 "Tablespace Growth Rate"                                                                                                                                                                                          
+@@script/tablespace_incre_pct.sql                                                                                                                                                                                               
+@@script/tag/To_Link Tablespace 
+
                                                                                                                                                                                                                           
 @@script/tag/Pa "Tablespace Used of Max"                                                                                                                                                                                                    
 @@script/tag/H3 "Tablespace Used of Max"                                                                                                                                                                                                    
