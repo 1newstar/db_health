@@ -1,4 +1,4 @@
-﻿select tablespace_name,
+select tablespace_name,
        file_name,
        file_id,
        relative_fno,

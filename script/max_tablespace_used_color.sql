@@ -1,4 +1,4 @@
-﻿select tbs_used_info.tablespace_name,
+select tbs_used_info.tablespace_name,
        round(tbs_used_info.alloc_mb / 1024, 2) alloc_GB,
        round(tbs_used_info.used_mb / 1024, 2) used_GB,
        ROUND(tbs_used_info.max_mb / 1024, 2) max_GB,
