@@ -3,35 +3,35 @@ set serveroutput on
 set feedback off
 
 declare
-  --ÉùÃ÷Ç¶Ì×±íÀàĞÍ
+  --å£°æ˜åµŒå¥—è¡¨ç±»å‹
   TYPE list_of_arguments IS TABLE OF varchar2(200);
-  --ÉùÃ÷Ç¶Ì×±í
+  --å£°æ˜åµŒå¥—è¡¨
   in_arguments list_of_arguments := list_of_arguments();
-  --ÉùÃ÷×Ö·û´®²ÎÊı±äÁ¿
+  --å£°æ˜å­—ç¬¦ä¸²å‚æ•°å˜é‡
   arguments varchar2(1000) := '&1' || ',';
   --arguments varchar2(1000) := 'table,order by,haha,objects,';
-  --´æ·Å¶ººÅµÄÎ»ÖÃ±äÁ¿
+  --å­˜æ”¾é€—å·çš„ä½ç½®å˜é‡
   l_comma_index PLS_INTEGER;
-  --ºÏÔ¼Ê××ÖÄ¸¿ªÊ¼Î»ÖÃ±äÁ¿
+  --åˆçº¦é¦–å­—æ¯å¼€å§‹ä½ç½®å˜é‡
   l_index PLS_INTEGER := 1;
   l_row   pls_integer;
 begin
   LOOP
-    --´Ól_index´¦¿ªÊ¼ËÑÑ°×Ö·û','
+    --ä»l_indexå¤„å¼€å§‹æœå¯»å­—ç¬¦','
     l_comma_index := INSTR(arguments, ',', l_index);
-    --·Ö¸ôÍê±ÏºóÍË³ö
+    --åˆ†éš”å®Œæ¯•åé€€å‡º
     EXIT WHEN l_comma_index = 0;
-    --À©Õ¹Ç¶Ì×±í
+    --æ‰©å±•åµŒå¥—è¡¨
     in_arguments.EXTEND;
-    --½ØÈ¡ºÏÔ¼ID²¢¸³Öµ
+    --æˆªå–åˆçº¦IDå¹¶èµ‹å€¼
     in_arguments(in_arguments.COUNT) := SUBSTR(arguments,
                                                l_index,
                                                l_comma_index - l_index);
-    --Ìøµ½ÏÂÒ»¸öºÏÔ¼IDµÄÊ××ÖÄ¸¿ªÊ¼Î»ÖÃ                             
+    --è·³åˆ°ä¸‹ä¸€ä¸ªåˆçº¦IDçš„é¦–å­—æ¯å¼€å§‹ä½ç½®                             
     l_index := l_comma_index + 1;
   END LOOP;
   dbms_output.put_line('<ul>');
-  --±éÀúÇ¶Ì×±í
+  --éå†åµŒå¥—è¡¨
   l_row := in_arguments.first;
   while l_row is not null loop
     dbms_output.put_line(q'{<li class="awr"><a class="awr" href="#}' ||

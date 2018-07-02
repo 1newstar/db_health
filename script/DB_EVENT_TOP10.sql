@@ -1,5 +1,5 @@
-SELECT
-  --Ã¿×é°´time_waitedÅÅĞò±àºÅ£¬È¥³ıÃ¿×éÖĞÁĞÖØ¸´µÄÖµ£¬Ö»±£ÁôµÚÒ»ÁĞµÄÖµ
+ï»¿SELECT
+  --æ¯ç»„æŒ‰time_waitedæ’åºç¼–å·ï¼Œå»é™¤æ¯ç»„ä¸­åˆ—é‡å¤çš„å€¼ï¼Œåªä¿ç•™ç¬¬ä¸€åˆ—çš„å€¼
   CASE
     WHEN dense_rank() over(partition BY inst_id, snap_id, begin_snap, end_snap order by time_waited DESC) = 1
     THEN q'{<div class='eventbegin'>}'
@@ -38,9 +38,9 @@ FROM
     wait_class,
     inerval_total_waits,
     time_waited,
-    --Ã¿×é°´time_waitedÅÅĞò£¬²¢±àºÅ
+    --æ¯ç»„æŒ‰time_waitedæ’åºï¼Œå¹¶ç¼–å·
     row_number() over(partition BY inst_id, snap_id order by time_waited DESC) wait_rank,
-    --½«db_timeÁĞ°´Ã¿×éÖĞÎ¨Ò»Í³¼Æ³öÀ´µÄDB TIMEÖµÌî³äÓÃÓÚ±ÈÀı¼ÆËã
+    --å°†db_timeåˆ—æŒ‰æ¯ç»„ä¸­å”¯ä¸€ç»Ÿè®¡å‡ºæ¥çš„DB TIMEå€¼å¡«å……ç”¨äºæ¯”ä¾‹è®¡ç®—
     MAX(db_time) over(partition BY inst_id, snap_id) db_time
   FROM
     (SELECT inst_id,
@@ -51,7 +51,7 @@ FROM
       wait_class,
       inerval_total_waits,
       time_waited,
-      --Í³¼ÆDB time£¬²¢½«¸ÃÖµÌî³äµ½db_timeÁĞ£¬ÓÃÓÚÏÂÒ»²½È«²¿Ìî³ä
+      --ç»Ÿè®¡DB timeï¼Œå¹¶å°†è¯¥å€¼å¡«å……åˆ°db_timeåˆ—ï¼Œç”¨äºä¸‹ä¸€æ­¥å…¨éƒ¨å¡«å……
       CASE
         WHEN event_name = 'DB time'
         THEN time_waited
@@ -66,14 +66,14 @@ FROM
         wait_class,
         total_waits,
         lag(total_waits, 1, NULL) over(partition BY s.startup_time, s.instance_number, stats.event_name order by s.snap_id) lagwaits,
-        --Ê¹ÓÃlagº¯Êı£¬ÓÃµ±Ç°¿ìÕÕµÄÖµ¼õÈ¥ÉÏÒ»¸ö¿ìÕÕµÄÖµ£¬µÚÒ»¸ö¿ìÕÕÌî³änull£¬ÏÂÃæ»áÓÃsnap_id > min_snap_idµÄÌõ¼şÅÅ³ıµÚÒ»¸ö¿ìÕÕ¶ÔÓ¦ĞĞ£¨ĞÅÏ¢ÒÑÎŞÓÃ£©
+        --ä½¿ç”¨lagå‡½æ•°ï¼Œç”¨å½“å‰å¿«ç…§çš„å€¼å‡å»ä¸Šä¸€ä¸ªå¿«ç…§çš„å€¼ï¼Œç¬¬ä¸€ä¸ªå¿«ç…§å¡«å……nullï¼Œä¸‹é¢ä¼šç”¨snap_id > min_snap_idçš„æ¡ä»¶æ’é™¤ç¬¬ä¸€ä¸ªå¿«ç…§å¯¹åº”è¡Œï¼ˆä¿¡æ¯å·²æ— ç”¨ï¼‰
         total_waits - lag(total_waits, 1, NULL) over(partition BY s.startup_time, s.instance_number, stats.event_name order by s.snap_id) inerval_total_waits,
-        --Í¬Ñù·½Ê½¼ÆËãµÈ´ıÊ±¼ä
+        --åŒæ ·æ–¹å¼è®¡ç®—ç­‰å¾…æ—¶é—´
         time_waited - lag(time_waited, 1, NULL) over(partition BY s.startup_time, s.instance_number, stats.event_name order by s.snap_id) time_waited,
-        --Ñ¡³ö×îĞ¡µÄ¿ìÕÕid£¬ÓÃÓÚÅÅ³ı
+        --é€‰å‡ºæœ€å°çš„å¿«ç…§idï¼Œç”¨äºæ’é™¤
         MIN(s.snap_id) over(partition BY s.startup_time, s.instance_number, stats.event_name) min_snap_id
       FROM
-        --½«µÈ´ıÊÂ¼şÓëÏµÍ³Í³¼ÆĞÅÏ¢ÈÚºÏ
+        --å°†ç­‰å¾…äº‹ä»¶ä¸ç³»ç»Ÿç»Ÿè®¡ä¿¡æ¯èåˆ
         (
         SELECT dbid,
           instance_number,
@@ -106,17 +106,17 @@ FROM
       AND s.instance_number =
         (SELECT instance_number FROM v$instance
         )
-        --½öÁĞ³öÇ°Ò»Ììµ½ÏÖÔÚµÄÊı¾İ£¬´ÓÇ°Ò»Ìì00£º00£º00¿ªÊ¼£¬×¢¶¨µÚÒ»¸ö¿ìÕÕÒªÑ¡2ÌìÇ°µÄ23£º00µÄ¿ìÕÕ£¬ËùÒÔÊ±¼äÊÇµ±Ç°00:00:00ÈÕÆÚ(ÁãµãÈÕÆÚ)¼õÈ¥25Ğ¡Ê±
+        --ä»…åˆ—å‡ºå‰ä¸€å¤©åˆ°ç°åœ¨çš„æ•°æ®ï¼Œä»å‰ä¸€å¤©00ï¼š00ï¼š00å¼€å§‹ï¼Œæ³¨å®šç¬¬ä¸€ä¸ªå¿«ç…§è¦é€‰2å¤©å‰çš„23ï¼š00çš„å¿«ç…§ï¼Œæ‰€ä»¥æ—¶é—´æ˜¯å½“å‰00:00:00æ—¥æœŸ(é›¶ç‚¹æ—¥æœŸ)å‡å»25å°æ—¶
       AND to_date(TO_CHAR(s.begin_interval_time, 'yyyy/mm/dd hh24'), 'yyyy/mm/dd hh24') >= TRUNC(sysdate) - 25 / 24
       ORDER BY s.snap_id
       )
-      --ÅÅ³ıµÚÒ»¸ö¿ìÕÕ
+      --æ’é™¤ç¬¬ä¸€ä¸ªå¿«ç…§
     WHERE snap_id > min_snap_id
-      --·ÀÖ¹¼ÆËãÆ½¾ùµÈ´ıÊ±¼äÊ±·ÖÄ¸Îª0
+      --é˜²æ­¢è®¡ç®—å¹³å‡ç­‰å¾…æ—¶é—´æ—¶åˆ†æ¯ä¸º0
     AND NVL(inerval_total_waits, 1) > 0
     )
   )
-  --<=11ÊÇÒòÎªÅÅ³ıÁËDB time£¬µ«Ê¹ÓÃrow_numberÅÅĞò±àºÅµÄÊ±ºòÉĞ°üÀ¨DB time£¬ËùÒÔTOP10¾ÍÒªÓÃ<=11
+  --<=11æ˜¯å› ä¸ºæ’é™¤äº†DB timeï¼Œä½†ä½¿ç”¨row_numberæ’åºç¼–å·çš„æ—¶å€™å°šåŒ…æ‹¬DB timeï¼Œæ‰€ä»¥TOP10å°±è¦ç”¨<=11
 WHERE wait_rank <= 11
 AND event_name  != 'DB time'
 ORDER BY inst_id,

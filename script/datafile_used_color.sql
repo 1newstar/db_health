@@ -1,4 +1,4 @@
-select tablespace_name,
+﻿select tablespace_name,
        file_name,
        file_id,
        relative_fno,
@@ -37,5 +37,5 @@ select tablespace_name,
                (select file_id, sum(BYTES) sb
                   from dba_free_space
                  group by file_id) b
-         where a.file_id = b.file_id
+         where a.file_id = b.file_id(+)
          order by 12 desc);

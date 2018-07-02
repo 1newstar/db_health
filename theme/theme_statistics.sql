@@ -14,7 +14,7 @@
 @@script/tag/H1 Statistics                                                                                                                                                                                                    
 
 set markup html off
-@@script/tag/ul.sql 'Autotask Client Status,Auto Job History,Gather Tables count,Gather Special User Tables Count'                                                                                                                                                                       
+@@script/tag/ul.sql 'Autotask Client Status,Auto Job History,Schema Job History,Gather Tables count,Gather Special User Tables Count'                                                                                                                                                                       
 set markup html on
 @@script/tag/To_Top                                                                                                                                                                                                           
 
@@ -23,10 +23,15 @@ set markup html on
 @@script/autotask_client.sql                                                                                                                                                                                              
 @@script/tag/To_Link Statistics
                                                                                                                                                                                                                           
+@@script/tag/Pa "Schema Job History"
+@@script/tag/H3 "Schema Job History"                                                                                                                                                                                            
+@@script/schema_scheduler.sql
+@@script/tag/To_Link Statistics 
+
 @@script/tag/Pa "Auto Job History"
 @@script/tag/H3 "Auto Job History"                                                                                                                                                                                            
 @@script/auto_job_histrory.sql
-@@script/tag/To_Link Statistics                                                                                                                                                                                               
+@@script/tag/To_Link Statistics                                                                                                                                                                                                
 
 @@script/tag/Pa "Gather Tables count"                                                                                                                                                                                         
 @@script/tag/H3 "Gather Tables count"
